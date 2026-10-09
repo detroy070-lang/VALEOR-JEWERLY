@@ -1,0 +1,447 @@
+/* =====================================================================
+   VALÉOR · Maison de Joaillerie — capa de diseño propia del cliente.
+   Se carga DESPUÉS de catalog.css y catalog-extra.css y solo cambia
+   la apariencia (colores, tipografía, formas, textura). Misma
+   funcionalidad que el resto del sistema.
+   ===================================================================== */
+:root{
+  --serif:'Cormorant Garamond','Cormorant',Georgia,'Times New Roman',serif;
+  --sans:'Jost','Helvetica Neue',Arial,sans-serif;
+  --ink:#12291c;
+  --ink-soft:rgba(18,41,28,.64);
+  --ink-line:rgba(18,41,28,.14);
+  --ivory:#f6f1e5;
+  --paper:#fbf8f0;
+  --gold-d:#8f6f2b;
+  --gold-l:#e6cb86;
+  --velvet:#0a4a2a;
+  --velvet-deep:#06301b;
+  /* Textura "espuma / terciopelo" de la caja de un reloj de lujo */
+  --felt:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='f' x='0' y='0' width='100%25' height='100%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.2' numOctaves='3' seed='4' stitchTiles='stitch' result='n'/%3E%3CfeDiffuseLighting in='n' lighting-color='%23ffffff' surfaceScale='2.2'%3E%3CfeDistantLight azimuth='40' elevation='55'/%3E%3C/feDiffuseLighting%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23f)'/%3E%3C/svg%3E");
+}
+body{background:var(--velvet-deep);font-family:var(--sans);font-weight:400;-webkit-font-smoothing:antialiased}
+.grain{opacity:.035}
+.card-price,.showroom-price strong,.dialog-price,.quote-card strong,.hero-note b,#pieceCount{font-variant-numeric:lining-nums}
+
+/* ---------- Barra superior: terciopelo verde con costura dorada ---------- */
+.topbar,.topbar.scrolled{
+  height:82px;
+  background-color:#0b5a32;
+  background-image:linear-gradient(180deg,rgba(255,255,255,.10),rgba(0,0,0,.22)),var(--felt);
+  background-blend-mode:normal,multiply;
+  border-bottom:0;
+  box-shadow:0 12px 34px rgba(0,22,10,.38);
+  backdrop-filter:none;
+}
+.topbar.scrolled{height:72px}
+.topbar:after{content:'';position:absolute;left:14px;right:14px;bottom:7px;border-bottom:1px dashed rgba(230,203,134,.55);pointer-events:none}
+.brand{gap:14px}
+.brand-mark{width:44px;height:44px;border-radius:50%;transform:none;border:1px solid var(--gold-l);background:radial-gradient(circle at 35% 30%,#1b7a47,#053019);box-shadow:inset 0 0 0 3px rgba(4,40,22,.9),inset 0 0 0 4px rgba(230,203,134,.5),0 4px 14px rgba(0,0,0,.35);color:var(--gold-l);font-family:var(--serif)}
+.brand-mark:after{transform:none;font-size:23px;font-weight:600;line-height:1;margin-top:-2px}
+.brand b{font-family:var(--serif);font-weight:600;font-size:26px;letter-spacing:.2em;color:#f6f1e5}
+.brand small{font-family:var(--sans);font-size:9px;letter-spacing:.46em;color:var(--gold-l);text-transform:uppercase;margin-top:6px}
+.desktop-nav{gap:38px}
+.desktop-nav a{font-family:var(--sans);font-size:12px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:rgba(246,241,229,.86);position:relative;padding:6px 0}
+.desktop-nav a:after{content:'';position:absolute;left:0;right:100%;bottom:0;height:1px;background:var(--gold-l);transition:right .3s}
+.desktop-nav a:hover{color:#fff}
+.desktop-nav a:hover:after{right:0}
+.icon-btn,.user-orb,.close-btn{border-color:rgba(230,203,134,.5);background:rgba(3,34,18,.35);color:#f6f1e5}
+.icon-btn span{background:var(--gold-l)}
+.user-orb{background:rgba(3,34,18,.45);box-shadow:none}
+.user-orb span{color:var(--gold-l);font-size:17px}
+.user-orb i{background:var(--gold-l);color:#06301b;font-weight:600}
+.contact-btn{padding:12px 20px}
+
+/* ---------- Botones: sobrios, en mayúsculas espaciadas ---------- */
+.shine-btn,.ghost-btn,.filter-shortcut{border-radius:2px;text-transform:uppercase;letter-spacing:.17em;font-size:11.5px;font-weight:500;padding:16px 26px;font-family:var(--sans)}
+.favorite-btn,.whatsapp-wide{border-radius:2px;font-family:var(--sans)}
+.shine-btn,.ghost-btn{background:transparent;border:1px solid rgba(230,203,134,.65);color:#f6f1e5}
+.shine-btn:hover,.ghost-btn:hover,.filter-shortcut:hover{box-shadow:0 10px 30px rgba(0,20,8,.25);border-color:var(--gold-l)}
+.shine-btn.primary{background:linear-gradient(135deg,#b98f3f,#f0d88f 48%,#b58a38);border-color:#e9d18a;color:#0a2a17;font-weight:600;box-shadow:0 10px 28px rgba(0,20,8,.3)}
+.shine-btn:before{background:linear-gradient(100deg,transparent,rgba(255,255,255,.4),transparent)}
+
+/* ---------- Títulos ---------- */
+.hero h1,.section-head h2,.showroom-heading h2,.showroom-detail h2,.guide-section h2,.pay-section h2,.visit-section h2,.panel-head h2,.product-dialog h2,.finance-dialog h2,.compare-head h2{font-family:var(--serif);font-weight:500;letter-spacing:-.012em}
+.section-head h2 em,.showroom-heading h2 em,.pay-section h2 em,.guide-section h2 em{font-style:italic;font-weight:500}
+.eyebrow{font-family:var(--sans);font-size:11px;font-weight:500;letter-spacing:.32em;text-transform:uppercase;color:var(--gold-l);align-items:center}
+.eyebrow i{font-style:normal;font-family:var(--serif);font-size:17px;font-weight:600;letter-spacing:.04em;padding-right:12px;margin-right:2px;border-right:1px solid currentColor;line-height:1}
+.eyebrow:has(i):before{display:none}
+
+/* ---------- Hero ---------- */
+.hero{
+  min-height:100svh;padding:132px clamp(22px,6vw,96px) 78px;
+  grid-template-columns:minmax(0,1.08fr) minmax(360px,.82fr);gap:clamp(24px,4vw,64px);
+  background-color:#0a3d23;
+  background-image:radial-gradient(ellipse 60% 62% at 74% 50%,rgba(52,158,98,.42),transparent 66%),radial-gradient(ellipse 90% 60% at 50% 108%,rgba(0,0,0,.5),transparent 62%),var(--felt);
+  background-blend-mode:normal,normal,multiply;
+}
+.hero:before{inset:100px 3vw 40px;border:1px solid rgba(230,203,134,.22)}
+.hero h1{font-size:clamp(56px,7.4vw,118px);line-height:.94;font-weight:500;color:#f6f1e5}
+.hero h1 em{font-style:italic;font-weight:500;color:var(--gold-l);background:none;-webkit-text-fill-color:currentColor}
+.hero-text{color:rgba(246,241,229,.78);font-size:18px;line-height:1.7;max-width:540px;font-weight:300}
+.trust-row{color:rgba(246,241,229,.82);font-size:12.5px;letter-spacing:.06em;gap:14px 30px;padding-top:24px;border-top:1px solid rgba(230,203,134,.28);max-width:640px}
+.trust-row span:before{content:'✦';font-size:10px;color:var(--gold-l)}
+.hero-note{left:clamp(22px,6vw,96px);right:auto;bottom:56px;color:rgba(246,241,229,.6);font-size:11px;letter-spacing:.16em;text-transform:uppercase}
+.hero-note span{color:var(--gold-l);font-size:16px}
+.hero-note b{color:#f6f1e5}
+
+/* ---------- Diamante: ventana en arco sobre terciopelo ---------- */
+.diamond-anchor{
+  width:min(100%,540px);height:auto;aspect-ratio:4/5;min-height:0;justify-self:center;
+  border-radius:999px 999px 26px 26px;
+  border:1px solid rgba(230,203,134,.6);
+  background-color:#08331d;
+  background-image:radial-gradient(ellipse 70% 56% at 50% 40%,rgba(66,176,112,.55),transparent 70%),radial-gradient(ellipse 80% 40% at 50% 100%,rgba(0,0,0,.55),transparent 70%),var(--felt);
+  background-blend-mode:normal,normal,multiply;
+  box-shadow:0 0 0 9px rgba(6,48,27,.9),0 0 0 10px rgba(230,203,134,.32),0 40px 90px rgba(0,16,7,.6);
+  overflow:hidden;contain:layout paint;
+}
+.diamond-anchor .diamond-halo{width:78%;top:auto;background:radial-gradient(circle,rgba(255,228,150,.34),rgba(214,178,98,.1) 42%,transparent 70%);filter:blur(6px)}
+.diamond-anchor .orbit{display:none}
+.diamond-anchor #heroDiamond{width:112%;height:auto;aspect-ratio:1/1;max-width:none;max-height:none;top:47%;filter:drop-shadow(0 26px 30px rgba(0,12,5,.65)) drop-shadow(0 0 26px rgba(240,205,120,.18))}
+.diamond-anchor.dragging #heroDiamond{filter:drop-shadow(0 30px 34px rgba(0,12,5,.7)) drop-shadow(0 0 34px rgba(240,205,120,.34))}
+.diamond-anchor .hero-logo{animation:none!important;left:50%;top:50%;transform:translate(-50%,-50%);width:27%;max-width:27%;max-height:none;height:auto;filter:drop-shadow(0 8px 14px rgba(0,0,0,.55));pointer-events:none}
+.diamond-anchor .drag-hint{bottom:5%;gap:5px}
+.drag-hint b{font-family:var(--sans);font-size:9.5px;letter-spacing:.3em;color:var(--gold-l);font-weight:500}
+.drag-hint span{font-family:var(--serif);font-style:italic;font-size:15px;letter-spacing:.02em;color:rgba(246,241,229,.68)}
+.logo-placeholder{border-color:rgba(230,203,134,.4)}
+
+/* ---------- Secciones sobre papel marfil ---------- */
+.catalog-section{background:linear-gradient(180deg,#f7f2e7,#efe7d5);color:var(--ink);padding:120px clamp(20px,6vw,96px)}
+.catalog-section .eyebrow,.guide-section .eyebrow,.showroom-detail .eyebrow{color:var(--gold-d)}
+.catalog-section .section-head h2,.guide-section h2{color:var(--ink);font-size:clamp(44px,5.6vw,82px);line-height:.98}
+.catalog-section .section-head h2 em,.guide-section h2 em{color:var(--gold-d)}
+.search-box{background:#fffdf8;border:1px solid var(--ink-line);border-radius:2px;height:50px}
+.search-box span{color:var(--gold-d)}
+.search-box input{color:var(--ink)}
+.search-box input::placeholder{color:rgba(18,41,28,.45)}
+.filter-shortcut{background:transparent;color:var(--ink);border:1px solid rgba(18,41,28,.35)}
+.filter-shortcut b{color:var(--gold-d)}
+.category-strip{gap:30px;padding:6px 0 22px;border-bottom:1px solid var(--ink-line)}
+.category-pill{border:0;border-bottom:1px solid transparent;border-radius:0;background:none;color:rgba(18,41,28,.55);padding:10px 0;font-family:var(--sans);font-size:12px;letter-spacing:.2em;text-transform:uppercase}
+.category-pill:hover,.category-pill.active{background:none;color:var(--ink);border-color:var(--gold-d)}
+.catalog-status{color:rgba(18,41,28,.55);font-size:12px;letter-spacing:.14em;text-transform:uppercase;margin:16px 0 22px}
+.catalog-status button{color:var(--gold-d)}
+.product-grid{gap:26px}
+
+/* Tarjetas de producto */
+.product-card{background:#fffdf8;border:1px solid var(--ink-line);border-radius:3px;box-shadow:0 1px 0 rgba(18,41,28,.04)}
+.product-card:hover{transform:translateY(-6px);border-color:rgba(143,111,43,.55);box-shadow:0 30px 60px rgba(9,50,28,.2)}
+.product-visual{margin:10px 10px 0;border-radius:2px;aspect-ratio:1/1.05;background-color:#0a4a2a;background-image:radial-gradient(ellipse 70% 60% at 50% 45%,rgba(66,176,112,.55),transparent 72%),var(--felt);background-blend-mode:normal,multiply}
+.product-visual:before{background:none}
+.product-visual:after{inset:7px;border:1px solid rgba(230,203,134,.42);background:linear-gradient(180deg,transparent 72%,rgba(2,28,14,.5));pointer-events:none}
+.product-visual .pv-img{-webkit-mask-image:radial-gradient(ellipse 84% 80% at 50% 50%,#000 62%,transparent 100%);mask-image:radial-gradient(ellipse 84% 80% at 50% 50%,#000 62%,transparent 100%)}
+.product-badge{background:rgba(4,40,22,.86);border:1px solid rgba(230,203,134,.5);color:var(--gold-l);border-radius:2px;letter-spacing:.14em;text-transform:uppercase;font-size:10px}
+.product-badge.out{color:#ffc6b8;border-color:rgba(255,160,140,.5)}
+.quick-view{border-radius:2px;background:#fffdf8;color:var(--ink);letter-spacing:.2em;text-transform:uppercase;font-size:10.5px;font-weight:600}
+.card-info{padding:20px 20px 22px}
+.card-info h3{font-family:var(--serif);font-weight:600;font-size:28px;color:var(--ink);line-height:1.02}
+.card-meta{color:rgba(18,41,28,.6);font-size:13px}
+.card-price{color:var(--ink);font-family:var(--serif);font-size:25px;font-weight:600;margin-top:14px}
+.card-price s{color:rgba(18,41,28,.4);font-family:var(--sans);font-size:.5em}
+.card-price.consult{color:var(--gold-d);font-family:var(--sans);font-size:12px;letter-spacing:.16em;text-transform:uppercase;font-weight:500}
+.installment{color:#2c6a47;font-size:12px}
+.card-ref{color:rgba(18,41,28,.38);letter-spacing:.16em;text-transform:uppercase;font-size:10px}
+.mini-fav{border-radius:50%;background:rgba(4,40,22,.72);border-color:rgba(230,203,134,.5);color:var(--gold-l);font-size:17px}
+.mini-fav.active{background:var(--gold-l);color:#06301b}
+.compare-toggle{border:1px solid var(--ink-line);background:transparent;color:rgba(18,41,28,.62);border-radius:2px;font-size:11px;letter-spacing:.14em;text-transform:uppercase}
+.compare-toggle:hover,.compare-toggle.active{border-color:var(--gold-d);color:var(--gold-d);background:rgba(143,111,43,.06)}
+.empty-state{border-color:var(--ink-line);border-radius:3px;color:var(--ink)}
+.empty-state span{color:var(--gold-d)}
+.empty-state h3{color:var(--ink)}
+.empty-state p{color:var(--ink-soft)}
+.empty-state .shine-btn{color:var(--ink);border-color:rgba(18,41,28,.4)}
+.empty-state .shine-btn:hover{border-color:var(--gold-d)}
+.product-card.skeleton .product-visual{background:linear-gradient(100deg,#0a4a2a 30%,#14603a 50%,#0a4a2a 70%);background-size:300% 100%}
+.product-card.skeleton .card-info i{background:rgba(18,41,28,.1)}
+
+/* ---------- La Selección (showroom) ---------- */
+.showroom-section{background-color:#083a21;background-image:radial-gradient(ellipse 60% 70% at 25% 30%,rgba(52,158,98,.3),transparent 66%),var(--felt);background-blend-mode:normal,multiply;padding:120px clamp(20px,6vw,96px);border-top:1px solid rgba(230,203,134,.25)}
+.showroom-heading h2{color:#f6f1e5;font-size:clamp(44px,5.6vw,82px);line-height:.98}
+.showroom-heading h2 em{color:var(--gold-l)}
+.showroom-heading>p{color:rgba(246,241,229,.72);font-weight:300;font-size:16.5px}
+.showroom-shell{border-radius:3px;background:#f7f2e7;border:1px solid rgba(230,203,134,.55);box-shadow:0 40px 100px rgba(0,16,7,.55)}
+.showroom-stage{background-color:#0a4a2a;background-image:radial-gradient(ellipse 62% 60% at 50% 46%,rgba(70,182,116,.55),transparent 72%),var(--felt);background-blend-mode:normal,multiply}
+.showroom-stage:before{content:'';position:absolute;inset:16px;border:1px solid rgba(230,203,134,.4);z-index:2;pointer-events:none}
+.showroom-stage img{object-fit:cover;-webkit-mask-image:radial-gradient(ellipse 88% 86% at 50% 50%,#000 66%,transparent 100%);mask-image:radial-gradient(ellipse 88% 86% at 50% 50%,#000 66%,transparent 100%);filter:none}
+.stage-aura{background:radial-gradient(circle,rgba(255,228,150,.16),transparent 67%)}
+.stage-category,.stage-index{background:rgba(4,40,22,.82);border:1px solid rgba(230,203,134,.5);border-radius:2px;color:var(--gold-l);font-size:10px;letter-spacing:.22em;text-transform:uppercase;top:32px}
+.stage-category{left:32px}
+.stage-index{right:32px;color:rgba(246,241,229,.8)}
+.showroom-detail{border-left:1px solid var(--ink-line);background:linear-gradient(180deg,#f9f5ea,#f2ebda);color:var(--ink)}
+.showroom-detail h2{color:var(--ink);font-weight:500}
+.showroom-copy{color:var(--ink-soft);font-size:16.5px;font-weight:300}
+.showroom-price strong{color:var(--ink);font-family:var(--serif);font-weight:600;font-size:38px}
+.showroom-price span{color:var(--gold-d)}
+.showroom-detail .ghost-btn{color:var(--ink);border-color:rgba(18,41,28,.4)}
+.showroom-detail .ghost-btn:hover{border-color:var(--gold-d)}
+.showroom-nav>button{background:transparent;border-color:rgba(18,41,28,.3);color:var(--ink);border-radius:50%}
+.showroom-nav>button:hover{border-color:var(--gold-d);color:var(--gold-d)}
+.showroom-progress button{background:rgba(18,41,28,.22)}
+.showroom-progress button.active{background:var(--gold-d)}
+
+/* ---------- Adquirir: banda de terciopelo ---------- */
+.pay-section{margin:0;padding:96px clamp(20px,6vw,96px);border:0;border-radius:0;background-color:#0a4a2a;background-image:radial-gradient(ellipse 60% 120% at 90% 0%,rgba(66,176,112,.35),transparent 60%),var(--felt);background-blend-mode:normal,multiply;box-shadow:none;position:relative;gap:44px}
+.pay-section:before{content:'';position:absolute;inset:18px clamp(12px,3vw,48px);border:1px dashed rgba(230,203,134,.4);pointer-events:none}
+.pay-section h2{font-size:clamp(42px,5vw,72px);line-height:.98;color:#f6f1e5}
+.pay-section h2 em{color:var(--gold-l)}
+.pay-section p{color:rgba(246,241,229,.76);font-weight:300;font-size:16.5px}
+.pay-chip{border-radius:2px;border:1px solid rgba(230,203,134,.4);background:rgba(3,34,18,.35);color:#f6f1e5;font-size:12.5px;letter-spacing:.08em}
+.pay-chip.credit{border-color:var(--gold-l);color:var(--gold-l);background:rgba(3,34,18,.5)}
+
+/* ---------- El Ritual (guía) ---------- */
+.guide-section{background:linear-gradient(180deg,#efe7d5,#f7f2e7);color:var(--ink);padding:120px clamp(20px,6vw,96px)}
+.guide-grid{gap:0;border-top:1px solid var(--ink-line)}
+.guide-card{background:none;border:0;border-radius:0;border-right:1px solid var(--ink-line);padding:44px 40px 40px;min-height:300px}
+.guide-card:last-child{border-right:0}
+.guide-card span{font-family:var(--serif);font-style:italic;font-weight:500;font-size:64px;line-height:1;color:var(--gold-d)}
+.guide-card h3{font-family:var(--serif);font-weight:600;font-size:34px;color:var(--ink);margin:34px 0 14px}
+.guide-card p{color:var(--ink-soft);font-weight:300;font-size:16px}
+
+/* ---------- La Casa (visítanos) ---------- */
+.visit-section{margin:0;padding:100px clamp(20px,6vw,96px);border:0;background-color:#083a21;background-image:radial-gradient(ellipse 60% 100% at 8% 0%,rgba(52,158,98,.3),transparent 62%),var(--felt);background-blend-mode:normal,multiply;color:#f6f1e5}
+.visit-section h2{font-size:clamp(42px,5vw,72px);color:#f6f1e5;line-height:.98}
+.visit-list div{border-bottom:1px solid rgba(230,203,134,.25)}
+.visit-list dt{color:var(--gold-l);font-size:11px;letter-spacing:.22em;text-transform:uppercase;padding-top:4px}
+.visit-list dd{color:rgba(246,241,229,.9)}
+
+/* ---------- Pie ---------- */
+footer{background-color:#052916;background-image:var(--felt);background-blend-mode:multiply;border-top:1px solid rgba(230,203,134,.3);color:rgba(246,241,229,.65);padding:64px clamp(20px,6vw,96px)}
+footer>small{color:rgba(246,241,229,.4)}
+.text-button{color:var(--gold-l);font-size:12px;letter-spacing:.18em;text-transform:uppercase}
+.admin-entry-link{color:rgba(246,241,229,.4)}
+
+/* ---------- Paneles laterales, ventanas y avisos ---------- */
+.scrim{background:rgba(2,24,12,.72)}
+.side-panel{background-color:#0a4a2a;background-image:linear-gradient(180deg,rgba(0,0,0,.05),rgba(0,0,0,.3)),var(--felt);background-blend-mode:normal,multiply;border-color:rgba(230,203,134,.35);color:#f6f1e5}
+.panel-head h2{font-size:42px;color:#f6f1e5}
+.filter-group{border-color:rgba(230,203,134,.22)}
+.filter-group>label,.filter-group legend{color:var(--gold-l);font-size:11px;letter-spacing:.22em;text-transform:uppercase;font-weight:500}
+.filter-group input[type=search],.filter-group select,select{background:rgba(3,34,18,.55);border-color:rgba(230,203,134,.32);border-radius:2px;color:#f6f1e5}
+.check-label{color:rgba(246,241,229,.85)}
+.panel-actions{background:linear-gradient(180deg,transparent,#063620 22%)}
+.saved-intro,.saved-item small,.saved-empty{color:rgba(246,241,229,.62)}
+.saved-item{border-color:rgba(230,203,134,.22)}
+.saved-item button{color:rgba(246,241,229,.7)}
+.saved-item img{border-radius:2px;background:#06301b}
+
+.product-dialog,.finance-dialog,.compare-dialog{background:#f8f3e8;color:var(--ink);border:1px solid rgba(230,203,134,.6);border-radius:3px;box-shadow:0 40px 120px rgba(0,12,5,.75)}
+.product-dialog::backdrop,.finance-dialog::backdrop,.compare-dialog::backdrop{background:rgba(2,24,12,.8)}
+.dialog-media{background-color:#0a4a2a;background-image:radial-gradient(ellipse 62% 55% at 50% 45%,rgba(70,182,116,.5),transparent 72%),var(--felt);background-blend-mode:normal,multiply}
+.product-visual.xl{margin:0;background-color:transparent;background-image:none}
+.product-visual.xl:after{inset:16px;border:1px solid rgba(230,203,134,.4);background:none}
+.product-visual.xl .pv-img{-webkit-mask-image:radial-gradient(ellipse 82% 78% at 50% 50%,#000 60%,transparent 100%);mask-image:radial-gradient(ellipse 82% 78% at 50% 50%,#000 60%,transparent 100%)}
+.dialog-close,.close-btn.dialog-close{background:rgba(4,40,22,.85);border-color:rgba(230,203,134,.55);color:var(--gold-l)}
+.zoom-hint{background:rgba(4,40,22,.82);border-color:rgba(230,203,134,.4);color:rgba(246,241,229,.85);border-radius:2px}
+.dialog-content .eyebrow,.finance-title .eyebrow,.compare-head .eyebrow{color:var(--gold-d)}
+.dialog-content h2{font-size:58px;line-height:.98;color:var(--ink)}
+.dialog-price{color:var(--ink);font-family:var(--serif);font-weight:600;font-size:34px}
+.dialog-price s{color:rgba(18,41,28,.4);font-family:var(--sans)}
+.dialog-price .consult{color:var(--gold-d);font-family:var(--sans);font-size:14px;letter-spacing:.16em;text-transform:uppercase}
+.dialog-description{color:var(--ink-soft);font-weight:300;font-size:16.5px}
+.spec-list div{border-color:var(--ink-line)}
+.spec-list dt{color:rgba(18,41,28,.5);font-size:12px;letter-spacing:.14em;text-transform:uppercase}
+.spec-list dd{color:var(--ink)}
+.dialog-content .ghost-btn,.dialog-content .favorite-btn,.finance-dialog .ghost-btn,.compare-dialog .ghost-btn{color:var(--ink);border-color:rgba(18,41,28,.35);background:transparent}
+.dialog-content .favorite-btn.active{background:var(--gold-l);color:#06301b;border-color:var(--gold-l)}
+.dialog-trust{color:rgba(18,41,28,.55)}
+.gallery-thumbs button{border-radius:2px;background:#06301b}
+.finance-title h2,.compare-head h2{color:var(--ink)}
+.finance-title>p:last-child,.compare-head>p:last-child,.legal-note{color:var(--ink-soft)}
+.simulator-controls label{color:var(--ink)}
+.simulator-controls output{color:var(--gold-d)}
+.simulator-controls select{background:#fffdf8;color:var(--ink);border-color:var(--ink-line)}
+.quote-card{background:#fffdf8;border-color:rgba(143,111,43,.4);border-radius:3px;color:var(--ink)}
+.quote-card span{color:rgba(18,41,28,.55)}
+.quote-card strong{color:var(--gold-d)}
+.compare-item{background:#fffdf8;border-color:var(--ink-line);border-radius:3px}
+.compare-item img{background:#0a4a2a}
+.compare-item>p{color:var(--gold-d)}
+.compare-item h3{color:var(--ink)}
+.compare-item>strong{color:var(--ink)}
+.compare-item dt{color:rgba(18,41,28,.5)}
+.compare-item dl div{border-color:var(--ink-line)}
+.compare-item>button{color:var(--gold-d);border-color:rgba(143,111,43,.4);border-radius:2px}
+.compare-tray{background:rgba(4,40,22,.94);border-color:rgba(230,203,134,.45);border-radius:3px}
+.compare-tray span,.compare-tray span b{color:#f6f1e5}
+.toast{background:#f8f3e8;color:var(--ink);border:1px solid rgba(143,111,43,.6);border-radius:2px}
+
+/* ---------- Modo fotos claras (fondo blanco) ----------
+   En config.js:  theme.photoMode: "light"  cuando las fotos del cliente
+   vengan con fondo blanco: se quita el desvanecido oscuro y se usa marfil. */
+body.photos-light .product-visual,body.photos-light .showroom-stage,body.photos-light .dialog-media{background-color:#fffdf8;background-image:none}
+body.photos-light .product-visual .pv-img,body.photos-light .showroom-stage img,body.photos-light .product-visual.xl .pv-img{-webkit-mask-image:none;mask-image:none}
+body.photos-light .product-visual:after,body.photos-light .showroom-stage:before,body.photos-light .product-visual.xl:after{border-color:rgba(143,111,43,.35)}
+body.photos-light .stage-aura{display:none}
+
+/* ---------- Celular ---------- */
+@media (max-width:1020px){
+  .guide-card{border-right:0;border-bottom:1px solid var(--ink-line);min-height:0}
+  .guide-card:last-child{border-bottom:0}
+  .showroom-detail{border-top:1px solid var(--ink-line)}
+}
+@media (max-width:760px){
+  .topbar,.topbar.scrolled{height:70px}
+  .topbar:after{bottom:5px}
+  .brand-mark{width:38px;height:38px}
+  .brand-mark:after{font-size:20px}
+  .brand b{font-size:21px}
+  .hero{padding:104px 20px 56px;gap:34px;grid-template-columns:minmax(0,1fr);align-content:start}
+  .hero-note{display:none}
+  .hero:before{inset:84px 10px 24px}
+  .hero h1{font-size:clamp(50px,15vw,76px)}
+  .hero-text{font-size:16px}
+  .diamond-anchor{width:min(92%,400px);margin:0 auto;height:auto;aspect-ratio:4/5;overflow:hidden}
+  .diamond-anchor #heroDiamond{width:112%;height:auto}
+  .diamond-anchor .diamond-fallback{width:100%}
+  .diamond-anchor .drag-hint{bottom:4%}
+  .catalog-section,.guide-section{padding:84px 20px}
+  .catalog-section .section-head h2,.guide-section h2,.showroom-heading h2{font-size:clamp(40px,12vw,58px)}
+  .category-strip{gap:22px}
+  .showroom-section{padding:84px 18px}
+  .pay-section{padding:76px 22px}
+  .visit-section{padding:80px 22px}
+  .pay-section:before{inset:12px 10px}
+  .product-visual{margin:8px 8px 0}
+  .card-info{padding:14px 14px 16px}
+  .card-info h3{font-size:22px}
+  .card-price{font-size:20px}
+  .dialog-content h2{font-size:44px}
+  .guide-card{padding:34px 4px}
+  .guide-card span{font-size:52px}
+}
+
+/* ---------- Ajustes finos ---------- */
+.dialog-media .product-visual.xl{position:absolute;inset:0;height:100%;min-height:0;background-size:cover!important;background-position:center!important}
+.pay-section p.eyebrow,.visit-section p.eyebrow,.showroom-heading p.eyebrow{color:var(--gold-l);font-size:11px;font-weight:500;line-height:1.2;margin:0 0 16px}
+
+/* Textos que no deben pisarse */
+.eyebrow{line-height:1.6}
+.hero{padding-bottom:132px}
+.wa-float{transition:transform .25s,opacity .25s}
+.wa-float.away{transform:translateY(90px);opacity:0;pointer-events:none}
+
+/* ---------- Video de la mano en el inicio ---------- */
+.hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:3;touch-action:pan-y;cursor:grab;-webkit-user-select:none;user-select:none}
+.diamond-anchor.dragging .hero-video{cursor:grabbing}
+.diamond-anchor.has-video #heroDiamond,.diamond-anchor.has-video .diamond-fallback,.diamond-anchor.has-video .hero-logo,.diamond-anchor.has-video .diamond-halo,.diamond-anchor.has-video .logo-placeholder{display:none!important}
+.diamond-anchor.has-video:after{content:'';position:absolute;inset:0;z-index:4;pointer-events:none;background:linear-gradient(180deg,transparent 70%,rgba(3,30,16,.75))}
+.diamond-anchor.has-video .drag-hint{z-index:6;opacity:0;transition:opacity .6s}
+.diamond-anchor.has-video.video-done .drag-hint{opacity:1}
+
+/* =====================================================================
+   V3 · menos texto, bloques ordenados, paleta afinada
+   ===================================================================== */
+:root{--emerald:#0b4a2a;--emerald-2:#0f5c35;--champagne:#e8d3a0;--sand:#efe7d5}
+.hero-note,.card-ref,.dialog-trust,.card-meta:empty{display:none!important}
+
+/* Hero: más aire, menos texto */
+.hero h1{font-size:clamp(54px,6.6vw,104px)}
+.hero-text{font-size:17px;margin:22px 0 30px;max-width:420px}
+.trust-row{border-top:0;padding-top:0;margin-top:30px;gap:10px}
+.trust-row span{padding:8px 14px;border:1px solid rgba(230,203,134,.35);border-radius:999px;font-size:11px;letter-spacing:.14em;text-transform:uppercase;background:rgba(3,34,18,.28)}
+.trust-row span:before{font-size:8px}
+.drag-hint b{letter-spacing:.34em}
+
+/* Adorno entre secciones: línea dorada con destello */
+.showroom-section,.catalog-section,.pay-section,.guide-section,.visit-section{position:relative}
+.catalog-section:before,.guide-section:before{content:'✦';position:absolute;top:44px;left:50%;transform:translateX(-50%);color:var(--gold-d);font-size:13px;letter-spacing:0;width:220px;text-align:center;background:linear-gradient(90deg,transparent,rgba(143,111,43,.5) 30%,transparent 42%,transparent 58%,rgba(143,111,43,.5) 70%,transparent) center/100% 1px no-repeat;line-height:14px}
+
+/* Encabezados de sección compactos y alineados */
+.showroom-heading{grid-template-columns:1fr;margin-bottom:30px}
+.section-head{margin-bottom:26px}
+.catalog-section .section-head h2,.guide-section h2,.showroom-heading h2{font-size:clamp(40px,4.6vw,64px)}
+
+/* Tarjetas: misma altura, sólo nombre + precio */
+.product-grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:22px}
+.product-card{display:flex;flex-direction:column}
+.product-card .product-open{flex:1;display:flex;flex-direction:column}
+.card-info{display:flex;flex-direction:column;gap:4px;padding:18px 18px 20px;text-align:center;border-top:1px solid var(--ink-line);margin-top:10px}
+.card-info h3{font-size:24px;margin:0}
+.card-meta{font-size:11px;letter-spacing:.12em;text-transform:uppercase;min-height:0}
+.card-price{margin-top:8px;font-size:22px}
+.compare-toggle{display:none}
+
+/* Guía: tres bloques iguales */
+.guide-grid{grid-template-columns:repeat(3,1fr);gap:16px;border-top:0}
+.guide-card{border:1px solid var(--ink-line);border-top:2px solid var(--gold-d);background:#fffdf8;padding:30px 28px;min-height:0;text-align:center}
+.guide-card:last-child{border-right:1px solid var(--ink-line)}
+.guide-card span{font-size:40px}
+.guide-card h3{margin:14px 0 8px;font-size:28px}
+.guide-card p{font-size:15px}
+
+/* Pagos: bloque centrado */
+.pay-section{grid-template-columns:1fr;justify-items:center;text-align:center;gap:22px;padding:90px clamp(20px,6vw,96px)}
+.pay-section .eyebrow{justify-content:center}
+.pay-section h2{margin-bottom:8px}
+.pay-chips{justify-content:center;max-width:720px}
+.pay-actions{flex-direction:row;justify-content:center}
+
+/* Visítanos: tarjeta ordenada */
+.visit-section{grid-template-columns:1fr 1.2fr auto;gap:40px}
+
+/* =================== CELULAR =================== */
+@media (max-width:760px){
+  /* En el celular lo primero que se ve es la joya/animación */
+  .hero{display:flex;flex-direction:column;padding:88px 16px 48px;gap:26px;min-height:0}
+  .hero:before{display:none}
+  .diamond-anchor{order:-1;width:100%;max-width:none;aspect-ratio:4/4.4;border-radius:220px 220px 16px 16px;box-shadow:0 0 0 6px rgba(6,48,27,.9),0 0 0 7px rgba(230,203,134,.3),0 24px 50px rgba(0,16,7,.55)}
+  .diamond-anchor.has-video{aspect-ratio:4/5}
+  .diamond-anchor #heroDiamond{width:118%;top:48%}
+  .hero-copy{text-align:center;width:100%}
+  .hero .eyebrow{justify-content:center}
+  .hero .eyebrow:before{display:none}
+  .hero h1{font-size:clamp(46px,13vw,60px)}
+  .hero-text{margin:14px auto 22px;font-size:15px}
+  .hero-actions{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .hero-actions>*{width:auto;padding:15px 10px;font-size:10.5px;letter-spacing:.14em}
+  .trust-row{justify-content:center;margin-top:20px;gap:8px}
+  .trust-row span{font-size:9.5px;padding:7px 11px}
+  .drag-hint b{font-size:8.5px}
+
+  .catalog-section:before,.guide-section:before{top:26px}
+  .showroom-section,.catalog-section,.guide-section{padding:70px 16px}
+  .section-head,.showroom-heading{text-align:center;align-items:center}
+  .section-head .eyebrow,.showroom-heading .eyebrow{justify-content:center}
+  .catalog-tools{gap:8px}
+  .category-strip{gap:18px;justify-content:flex-start}
+  .product-grid{grid-template-columns:1fr 1fr;gap:10px}
+  .product-visual{margin:6px 6px 0}
+  .card-info{padding:12px 8px 14px;margin-top:6px}
+  .card-info h3{font-size:18px;line-height:1.05}
+  .card-meta{font-size:9.5px;letter-spacing:.08em}
+  .card-price{font-size:17px;margin-top:4px}
+  .product-badge{font-size:8.5px;padding:4px 7px}
+  .mini-fav{width:30px;height:30px;font-size:14px}
+
+  .showroom-shell{border-radius:3px}
+  .showroom-stage{min-height:340px}
+  .showroom-detail{padding:24px 18px 28px;text-align:center}
+  .showroom-detail .eyebrow{justify-content:center}
+  .showroom-detail h2{font-size:38px}
+  .showroom-copy{display:none}
+  .showroom-price{align-items:center;margin-bottom:20px}
+  .showroom-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+  .showroom-actions>*{padding:14px 8px;font-size:10.5px}
+  .showroom-nav{margin-top:24px}
+
+  .pay-section{padding:70px 20px}
+  .pay-actions{flex-direction:column;width:100%}
+  .guide-grid{grid-template-columns:1fr;gap:10px}
+  .guide-card{display:grid;grid-template-columns:52px 1fr;text-align:left;align-items:center;gap:0 14px;padding:18px 18px}
+  .guide-card span{grid-row:1/3;font-size:34px;text-align:center}
+  .guide-card h3{margin:0;font-size:22px}
+  .guide-card p{font-size:13.5px;margin:0}
+  .visit-section{grid-template-columns:1fr;text-align:center;padding:70px 20px}
+  .visit-section .eyebrow{justify-content:center}
+  .visit-list div{grid-template-columns:1fr;gap:2px;text-align:center}
+  footer{padding:44px 20px 90px}
+}
+@media (max-width:380px){.hero-actions{grid-template-columns:1fr}}
+html,body{overflow-x:clip;max-width:100%}
+@media (max-width:760px){
+  .category-strip{margin-right:0}
+  .card-meta{text-transform:none;letter-spacing:.02em;font-size:11px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .card-price.consult{font-size:10px;letter-spacing:.1em}
+  .showroom-detail .eyebrow{font-size:10px;letter-spacing:.2em}
+}

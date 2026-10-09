@@ -1,0 +1,102 @@
+/* =====================================================================
+   VALÉOR · lookbook.css — Inicio animado (yate → aretes → collar → pulsera)
+   ===================================================================== */
+.lookbook{position:relative;
+  background-color:#0a3d23;
+  background-image:radial-gradient(ellipse 55% 60% at 72% 50%,rgba(52,158,98,.38),transparent 66%),radial-gradient(ellipse 90% 60% at 50% 108%,rgba(0,0,0,.5),transparent 62%),var(--felt);
+  background-blend-mode:normal,normal,multiply}
+.lb-sticky{position:relative;min-height:100vh;min-height:100svh;overflow:hidden;display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:clamp(28px,5vw,88px);padding:104px clamp(22px,6vw,96px) 64px}
+
+/* Cuadro de museo: moldura dorada tallada + paspartú de terciopelo + placa de bronce */
+.lb-painting{grid-column:2;grid-row:1;margin:0;position:relative;display:flex;flex-direction:column;align-items:center;gap:20px;--fw:clamp(18px,1.9vw,30px)}
+.lb-light{position:absolute;left:50%;top:-14%;width:150%;height:80%;transform:translateX(-50%);pointer-events:none;z-index:0;
+  background:radial-gradient(ellipse 50% 60% at 50% 0,rgba(255,226,160,.26),rgba(255,226,160,.07) 55%,transparent 75%)}
+.lb-molding{position:relative;z-index:1;padding:var(--fw);
+  background:linear-gradient(135deg,#6b4c16 0%,#e9cf86 13%,#a47a2c 27%,#f7e3a2 42%,#8c6623 57%,#dcb866 72%,#7a5719 87%,#c9a24f 100%);
+  box-shadow:0 0 0 1px #3d2a08,0 36px 70px rgba(0,10,4,.72),0 12px 26px rgba(0,10,4,.5)}
+/* hilera de perlas talladas en la moldura */
+.lb-molding:before{content:'';position:absolute;inset:calc(var(--fw)*.3);padding:9px;pointer-events:none;
+  background:radial-gradient(circle,#fff2bf 0 1.4px,#c99c47 2.4px,#6a4b14 3.5px,transparent 4.1px) 0 0/9px 9px;
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;
+  mask:linear-gradient(#000 0 0) content-box exclude,linear-gradient(#000 0 0)}
+/* biseles: brillo exterior y sombra interior */
+.lb-molding:after{content:'';position:absolute;inset:0;pointer-events:none;
+  box-shadow:inset 0 0 0 2px rgba(255,240,190,.55),inset 0 0 0 3px #5a3f0e,inset 0 2px 2px rgba(255,255,255,.35),inset 0 -4px 8px rgba(50,30,5,.55)}
+.lb-liner{position:relative;padding:clamp(8px,1vw,14px);background-color:#0a3d23;background-image:var(--felt);background-blend-mode:multiply;
+  box-shadow:0 0 0 2px #f0d58c,0 0 0 3px #5a3f0e,inset 0 6px 14px rgba(0,0,0,.6)}
+.lb-frame{position:relative;height:min(calc(100svh - 300px),680px);aspect-ratio:.64;max-width:100%;overflow:hidden;isolation:isolate;background:#08331d;
+  box-shadow:0 0 0 2px #d9b768,0 0 0 3px #4b360c}
+.lb-canvas{position:absolute;left:0;top:0;transform-origin:0 0;will-change:transform}
+.lb-canvas img{display:block;width:100%;height:100%;-webkit-user-select:none;user-select:none}
+.lb-close{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;will-change:opacity,transform;-webkit-user-select:none;user-select:none}
+.lb-close[data-close-up="1"]{object-position:42% 45%}
+.lb-close[data-close-up="3"]{object-position:62% 55%}
+.lb-shade{position:absolute;inset:0;pointer-events:none;z-index:2;background:radial-gradient(ellipse 100% 80% at 50% 45%,transparent 60%,rgba(4,32,17,.35))}
+/* placa de bronce, como en las salas de un museo */
+.lb-plaque{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;gap:2px;padding:7px 26px 8px;min-width:200px;text-align:center;color:#2e2106;
+  background:linear-gradient(180deg,#f0d993,#c39a48 52%,#e0c070);
+  box-shadow:0 0 0 1px #5e430f,inset 0 1px 0 rgba(255,255,255,.55),0 8px 16px rgba(0,10,4,.45)}
+.lb-plaque:before,.lb-plaque:after{content:'';position:absolute;top:50%;width:5px;height:5px;margin-top:-2.5px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#fff1c0,#7a5a1c)}
+.lb-plaque:before{left:9px}.lb-plaque:after{right:9px}
+.lb-plaque b{font-family:var(--serif);font-style:italic;font-weight:600;font-size:16px;line-height:1.1}
+.lb-plaque span{font-size:8.5px;letter-spacing:.24em;text-transform:uppercase;opacity:.8}
+
+/* Textos: un capítulo a la vez */
+.lb-copy{grid-column:1;grid-row:1;display:grid;align-items:center;min-height:62svh;position:relative;z-index:3}
+.lb-chapter{grid-area:1/1;opacity:0;transform:translateY(14px);pointer-events:none;max-width:640px;visibility:hidden;transition:opacity .45s ease,transform .45s ease,visibility 0s .45s}
+.lb-chapter.is-on{opacity:1;transform:none;pointer-events:auto;visibility:visible;transition:opacity .6s ease .35s,transform .6s ease .35s,visibility 0s}
+.lookbook h1{font-family:var(--serif);font-size:clamp(54px,6.6vw,104px);line-height:.94;font-weight:500;letter-spacing:-.012em;color:#f6f1e5;margin:18px 0 0}
+.lookbook h1 em,.lb-chapter h2 em{font-style:italic;font-weight:500;color:var(--gold-l)}
+.lookbook .hero-text{color:rgba(246,241,229,.78);font-size:17px;line-height:1.7;max-width:420px;font-weight:300;margin:22px 0 30px}
+.lb-chapter h2{font-family:var(--serif);font-size:clamp(52px,6.2vw,98px);line-height:.95;font-weight:500;letter-spacing:-.012em;color:#f6f1e5;margin:18px 0 0}
+.lb-text{color:rgba(246,241,229,.78);font-size:17px;font-weight:300;margin:18px 0 30px}
+.lookbook .trust-row{margin-top:30px}
+
+/* Selector discreto bajo la placa: Riviera · Aretes · Collares · Pulseras */
+.lb-steps{position:relative;z-index:1;display:flex;align-items:center;gap:6px;margin-top:-4px}
+.lb-steps button{background:none;border:0;padding:6px 4px;font:inherit;font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:rgba(246,241,229,.5);cursor:pointer;position:relative;transition:color .3s}
+.lb-steps button+button:before{content:'·';position:absolute;left:-6px;color:rgba(230,203,134,.45);letter-spacing:0}
+.lb-steps button:after{content:'';position:absolute;left:4px;right:calc(4px + .24em);bottom:2px;height:1px;background:var(--gold-l);transform:scaleX(0);transition:transform .35s}
+.lb-steps button:hover,.lb-steps button:focus-visible{color:rgba(246,241,229,.85);outline:none}
+.lb-steps button.on{color:var(--gold-l)}
+.lb-steps button.on:after,.lb-steps button:focus-visible:after{transform:scaleX(1)}
+
+/* Puntos dorados sobre cada joya: pequeños y suaves, solo en la escena completa */
+.lb-spot{position:absolute;z-index:3;width:24px;height:24px;margin:-12px 0 0 -12px;border-radius:50%;border:0;padding:0;cursor:pointer;background:none;opacity:0;pointer-events:none;transition:opacity .4s}
+.lb-spot:before{content:'';position:absolute;left:50%;top:50%;width:7px;height:7px;margin:-3.5px 0 0 -3.5px;border-radius:50%;background:#fff4d2;box-shadow:0 0 0 1px rgba(201,169,97,.7),0 0 8px 2px rgba(255,226,150,.55);animation:lbGlow 2.8s ease-in-out infinite}
+.lb-at-scene .lb-spot{opacity:.85;pointer-events:auto;transition:opacity .5s .9s}
+.lb-spot:hover,.lb-spot:focus-visible{outline:none;opacity:1}
+.lb-spot:hover:before,.lb-spot:focus-visible:before{box-shadow:0 0 0 1px rgba(201,169,97,.9),0 0 12px 4px rgba(255,226,150,.75)}
+@keyframes lbGlow{0%,100%{opacity:.55}50%{opacity:1}}
+.lb-frame{touch-action:pan-y}
+
+@media (max-width:1020px) and (min-width:761px){
+  .lb-sticky{gap:28px}
+  .lb-frame{height:min(calc(100svh - 320px),560px)}
+}
+
+/* ---------- Celular: cuadro arriba, texto abajo ---------- */
+@media (max-width:760px){
+  .lb-sticky{min-height:100svh;display:flex;flex-direction:column;align-items:center;gap:14px;padding:calc(84px + env(safe-area-inset-top)) 16px calc(28px + env(safe-area-inset-bottom))}
+  .lb-painting{--fw:16px;gap:10px}
+  .lb-frame{height:clamp(230px,calc(100svh - 460px),540px)}
+  .lb-liner{padding:7px}
+  .lb-plaque{padding:5px 22px 6px;min-width:170px}
+  .lb-plaque b{font-size:14px}
+  .lb-copy{width:100%;min-height:0;flex:1;align-items:start;text-align:center}
+  .lb-chapter{max-width:none}
+  .lookbook .eyebrow{justify-content:center}
+  .lookbook .eyebrow:before{display:none}
+  .lookbook h1{font-size:clamp(32px,9.4vw,44px);margin-top:8px}
+  .lookbook .hero-text{font-size:14px;margin:8px auto 14px;max-width:330px}
+  .lb-chapter h2{font-size:clamp(34px,10vw,46px);margin-top:8px}
+  .lb-text{font-size:14px;margin:6px 0 14px}
+  .lookbook .trust-row{display:none}
+  .lookbook .hero-actions{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .lb-chapter .shine-btn{min-width:200px}
+  .lb-steps{gap:2px}
+  .lb-steps button{font-size:9.5px;letter-spacing:.18em;padding:6px 5px}
+}
+@media (max-width:760px) and (max-height:720px){.lookbook .hero-text{display:none}}
+@media (prefers-reduced-motion:reduce){.lb-spot:before{animation:none}.lb-chapter,.lb-chapter.is-on{transition:none}}
+@media (max-width:760px){.wa-float.lb-hide{opacity:0;transform:scale(.8);pointer-events:none}}
