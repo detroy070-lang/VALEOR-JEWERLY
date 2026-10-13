@@ -10,7 +10,7 @@ import { JOYAS_INICIALES, PANELES_INICIALES } from "./joyas-iniciales.js";
 
 const BUCKET = "joyas";
 const assetBase = () => (location.pathname.includes("/admin") ? "../assets/" : "assets/");
-const SUPABASE_CDN = "./vendor/supabase.js";   // librería de Supabase servida desde el propio sitio (no depende de CDN externos)
+const SUPABASE_CDN = "./supabase.js";   // librería de Supabase servida desde el propio sitio (no depende de CDN externos)
 
 const PRODUCT_FIELDS = [
   "name", "category", "gender", "material", "weight_g", "size", "stone", "description",
