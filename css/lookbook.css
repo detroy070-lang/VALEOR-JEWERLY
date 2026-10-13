@@ -24,7 +24,7 @@
   box-shadow:inset 0 0 0 2px rgba(255,240,190,.55),inset 0 0 0 3px #5a3f0e,inset 0 2px 2px rgba(255,255,255,.35),inset 0 -4px 8px rgba(50,30,5,.55)}
 .lb-liner{position:relative;padding:clamp(8px,1vw,14px);background-color:#0a3d23;background-image:var(--felt);background-blend-mode:multiply;
   box-shadow:0 0 0 2px #f0d58c,0 0 0 3px #5a3f0e,inset 0 6px 14px rgba(0,0,0,.6)}
-.lb-frame{position:relative;height:min(calc(100svh - 300px),680px);aspect-ratio:.64;max-width:100%;overflow:hidden;isolation:isolate;background:#08331d;
+.lb-frame{position:relative;height:680px;height:min(calc(100vh - 300px),680px);height:min(calc(100svh - 300px),680px);width:calc(680px * .64);width:calc(min(calc(100vh - 300px),680px) * .64);width:calc(min(calc(100svh - 300px),680px) * .64);flex:none;max-width:100%;overflow:hidden;isolation:isolate;background:#08331d;
   box-shadow:0 0 0 2px #d9b768,0 0 0 3px #4b360c}
 .lb-canvas{position:absolute;left:0;top:0;transform-origin:0 0;will-change:transform}
 .lb-canvas img{display:block;width:100%;height:100%;-webkit-user-select:none;user-select:none}
@@ -72,14 +72,14 @@
 
 @media (max-width:1020px) and (min-width:761px){
   .lb-sticky{gap:28px}
-  .lb-frame{height:min(calc(100svh - 320px),560px)}
+  .lb-frame{height:560px;height:min(calc(100vh - 320px),560px);height:min(calc(100svh - 320px),560px);width:calc(560px * .64);width:calc(min(calc(100vh - 320px),560px) * .64);width:calc(min(calc(100svh - 320px),560px) * .64)}
 }
 
 /* ---------- Celular: cuadro arriba, texto abajo ---------- */
 @media (max-width:760px){
   .lb-sticky{min-height:100svh;display:flex;flex-direction:column;align-items:center;gap:14px;padding:calc(84px + env(safe-area-inset-top)) 16px calc(28px + env(safe-area-inset-bottom))}
   .lb-painting{--fw:16px;gap:10px}
-  .lb-frame{height:clamp(230px,calc(100svh - 460px),540px)}
+  .lb-frame{height:420px;height:clamp(300px,calc(100vh - 440px),540px);height:clamp(300px,calc(100svh - 440px),540px);width:calc(420px * .64);width:calc(clamp(300px,calc(100vh - 440px),540px) * .64);width:calc(clamp(300px,calc(100svh - 440px),540px) * .64)}
   .lb-liner{padding:7px}
   .lb-plaque{padding:5px 22px 6px;min-width:170px}
   .lb-plaque b{font-size:14px}
