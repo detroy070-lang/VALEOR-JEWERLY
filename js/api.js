@@ -9,6 +9,7 @@ import { CONFIG, idb, uuid, computePrice, categoriesOf } from "./core.js";
 import { JOYAS_INICIALES, PANELES_INICIALES } from "./joyas-iniciales.js";
 
 const BUCKET = "joyas";
+const assetBase = () => (location.pathname.includes("/admin") ? "../assets/" : "assets/");
 const SUPABASE_CDN = "https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm";
 
 const PRODUCT_FIELDS = [
@@ -95,7 +96,7 @@ async function createSupabaseApi() {
 
   return {
     mode: "supabase",
-    imageUrl: (path) => (!path ? "" : /^(https?:|data:|blob:|assets\/|\.\.\/assets\/)/.test(path) ? path : publicUrl(path)),
+    imageUrl: (path) => (!path ? "" : path.startsWith("assets/") ? assetBase() + path.slice(7) : /^(https?:|data:|blob:|\.\.\/assets\/)/.test(path) ? path : publicUrl(path)),
 
     async getStore() {
       store = throwIf(await withRetry(() => sb.from("stores").select("*").eq("slug", CONFIG.storeSlug).maybeSingle()));
@@ -231,7 +232,6 @@ async function createSupabaseApi() {
    Motor 2 · Demo (todo queda en este navegador)
    ===================================================================== */
 const DEMO_KEY = "aureon-demo-v5";
-const assetBase = () => (location.pathname.includes("/admin") ? "../assets/" : "assets/");
 
 function demoSeed() {
   const now = Date.now(), gold = Number(CONFIG.precioGramo18k) || null;
