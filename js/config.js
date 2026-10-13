@@ -11,13 +11,13 @@
    5. support: tu WhatsApp de soporte (el dueño te escribe si algo falla).
    ===================================================================== */
 window.AUREON_CONFIG = {
-  // ⚠️ PENDIENTE: cambia a "supabase" cuando tengas tu proyecto listo.
-  // Mientras tanto queda en "demo" para que el sitio funcione sin base de datos.
-  backend: "demo",
+  // Base de datos real conectada (Supabase). Para volver al modo demostración: "demo".
+  backend: "supabase",
 
-  // ⚠️ PENDIENTE — copia esto de tu proyecto Supabase → Project Settings → API:
-  supabaseUrl: "",           // ej: "https://xxxxxxxx.supabase.co"
-  supabaseAnonKey: "",       // la "anon key" (pública, no es un secreto)
+  // Supabase → Project Settings → API Keys. Es la clave PUBLICABLE (segura en la web).
+  // Nunca pongas aquí la clave secreta (sb_secret_...).
+  supabaseUrl: "https://eadvkdxnajvuasesvfc.supabase.co",
+  supabaseAnonKey: "sb_publishable_LkDbm8sG76dhuE9fFGtXqQ_B7FZKA6i",
   storeSlug: "valeor",       // identificador de la joyería en la base de datos
   storeWhatsapp: "573005466740", // WhatsApp Business: aquí llegan los pedidos del catálogo
 
