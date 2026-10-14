@@ -45,11 +45,5 @@
         }
       ]
     }
-  ],
-  "rewrites": [
-    {
-      "source": "/sb/:path*",
-      "destination": "https://eadvkdxnajvuasesvfc.supabase.co/:path*"
-    }
   ]
 }
