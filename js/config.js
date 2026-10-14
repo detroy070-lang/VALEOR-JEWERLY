@@ -16,9 +16,8 @@ window.AUREON_CONFIG = {
 
   // Supabase → Project Settings → API Keys. Es la clave PUBLICABLE (segura en la web).
   // Nunca pongas aquí la clave secreta (sb_secret_...).
-  // Conexión a Supabase a través de tu propio dominio (/sb), para que no dependa de la red del cliente.
-  supabaseUrl: window.location.origin + "/sb",
-  supabaseAnonKey: "sb_publishable_LkDbm8sG76dhuE9fFGtXqQ_B7FZKA6i",
+  supabaseUrl: "https://criaraisftzdypjauxye.supabase.co",
+  supabaseAnonKey: "sb_publishable_T8NGSVCXUlfj0BpcoOIHtw_1huoUYVO",
   storeSlug: "valeor",       // identificador de la joyería en la base de datos
   storeWhatsapp: "573005466740", // WhatsApp Business: aquí llegan los pedidos del catálogo
 
